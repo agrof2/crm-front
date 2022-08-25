@@ -12,9 +12,20 @@ input, button {
   outline: none;
 }
 
+.Content {
+  display: flex;
+  height: 100vh;
+}
+
 .App {
   height: 100vh;
+  background-color: #EEE;
+}
+
+.Login {
   display: flex;
+  flex: 1;
+  height: 100vh;
   align-items: center;
   justify-content: center;
   background-color: #EEE;
@@ -23,6 +34,28 @@ input, button {
 form {
   display: flex;
   position: relative;
+  box-shadow: rgba(16, 23, 29, 0.552) 0px 60px 123px -25px,
+  rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+  transform:
+    scale(0.75)
+    rotateY(-30deg)
+    rotateX(45deg)
+    translateZ(4.5rem);
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  transition: 0.6s ease transform;
+
+  &::before {
+    transform: translateZ(5rem);
+    &:hover {
+      transform: translateZ(0);
+    }
+  }
+
+}
+
+form:hover {
+  transform: scale(1);
 }
 
 form:after {
@@ -35,7 +68,11 @@ form:after {
   bottom: -5px;
   z-index: 1;
   border-radius: 6px;
-  background-image: linear-gradient(to bottom right, #076353, #4e0788);
+  background-image: linear-gradient(to bottom right, #076354ae, #010778ae);
+  transform: translateZ(-5rem);
+    &:hover {
+      transform: translateZ(-1px);
+    }
 }
 
 form .form-inner {
@@ -54,6 +91,13 @@ form .form-inner h2 {
   margin-bottom: 30px;
 }
 
+form .form-inner h3 {
+  color: rgb(160, 1, 1);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
 form .form-inner .form-group {
   display: block;
   color: #666;
@@ -70,14 +114,14 @@ form .form-inner .form-group {
 }
 
 .form-inner .form-group:focus-within label {
-  color: #ff8e8e;
+  color: #940000;
 }
 
 form .form-inner .form-group input {
   display: block;
   width: 100%;
   padding: 10px 15px;
-  background-color: #f4f4f4;
+  background-color: #f4f4f430;
   border-radius: 9px;
   transition: 0.4s;
 }
@@ -86,12 +130,13 @@ form .form-inner .form-group input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
 
-form .form-inner input[type="submit"], 
-.welcome button {
+form .form-inner input[type="submit"] {
+  flex: 1;
   display: inline-block;
+  width: 100%;
   padding: 10px 15px;
-  border-radius: 8px;
-  background-image: linear-gradient(to right, #076353 50%, #076353 50%, #4e0788);
+  border-radius: 10px;
+  background-color: #087c69;
   background-size: 200px;
   background-position: 0%;
   transition: 0.4s;
@@ -100,16 +145,32 @@ form .form-inner input[type="submit"],
   cursor: pointer;
 }
 
-form .form-inner input[type="submit"]:hover, 
-.welcome button:hover {
-  background-position: 100% 0%;
+form .form-inner input[type="submit"]:hover {
+  background-color: #010778;
 }
 
 .welcome {
-  width: 100%;
-  max-width: 480px;
+  flex: 12;
   background-color: #fff;
   padding: 15px 30px;
+}
+
+
+.welcome button {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #076353 50%, #076353 50%, #010778);
+  background-size: 200px;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.welcome button:hover {
+  background-color: #010778;
 }
 
 .welcome h2 {
@@ -120,7 +181,54 @@ form .form-inner input[type="submit"]:hover,
 }
 
 .welcome h2 span {
-  color: #4e0788;
+  color: #010778;
   font-weight: 700;
+  font-size: xx-large;
+
+}
+
+.Plataform{
+  display: flex;
+  flex: 1;
+  height: 100vh;
+}
+
+.Menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 100px;
+  background-color: #0096fb;
+}
+
+.Menu ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.Menu li {
+  display: flex;
+}
+
+.Menu li a {
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.Menu li a:hover {
+  background-color: #00000020;
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+.Menu > a {
+  display: flex;
+  list-style: none;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  justify-content: start;
+  align-items: flex-end;
 
 }
